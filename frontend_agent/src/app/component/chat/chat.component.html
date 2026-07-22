@@ -1,0 +1,51 @@
+<div class="chat-wrapper">
+  <!-- Header -->
+  <div class="chat-header">
+    <div class="header-info">
+      <h3>AI Assistant</h3>
+      <span class="thread-badge">Thread: {{ threadId }}</span>
+    </div>
+    <button class="new-chat-btn" (click)="startNewSession()">+ New Chat</button>
+  </div>
+
+  <!-- Messages Body -->
+  <div class="chat-body" #scrollContainer>
+    <div 
+      *ngFor="let msg of messages" 
+      [ngClass]="{'user-msg': msg.sender === 'user', 'agent-msg': msg.sender === 'agent'}"
+      class="message-row"
+    >
+      <div class="avatar">
+        {{ msg.sender === 'user' ? 'U' : 'AI' }}
+      </div>
+      <div class="bubble">
+        <p class="text">{{ msg.text }}</p>
+        <span class="time">{{ msg.timestamp | date:'shortTime' }}</span>
+      </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div *ngIf="isLoading" class="message-row agent-msg">
+      <div class="avatar">AI</div>
+      <div class="bubble loading-bubble">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input Footer -->
+  <div class="chat-footer">
+    <input 
+      type="text" 
+      [(ngModel)]="userMessage" 
+      (keyup.enter)="sendMessage()" 
+      placeholder="Type your query here..."
+      [disabled]="isLoading"
+    />
+    <button (click)="sendMessage()" [disabled]="!userMessage.trim() || isLoading">
+      Send
+    </button>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+.app-container {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #f1f5f9; /* Slate 50 - clean light gray background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Add this to your global src/styles.css if you want to remove default browser margins */
+:host {
+  display: block;
+}
