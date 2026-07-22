@@ -1,8 +1,8 @@
 # Python/Flask
-.env
+# .env
 __pycache__/
 venv/
-env/
+# env/
 *.pyc
 
 # Angular
