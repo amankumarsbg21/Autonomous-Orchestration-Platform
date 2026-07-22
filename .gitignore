@@ -1,0 +1,15 @@
+# Python/Flask
+.env
+__pycache__/
+venv/
+env/
+*.pyc
+
+# Angular
+node_modules/
+dist/
+.angular/
+
+# OS Files
+.DS_Store
+Thumbs.db

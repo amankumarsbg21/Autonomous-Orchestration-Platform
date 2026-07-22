@@ -1,0 +1,16 @@
+langchain
+dotenv
+langgraph 
+langchain-core
+
+#Google gemini
+langchain-google-genai
+
+
+typing
+pydantic
+
+langchain_tavily
+flask
+langchain_community
+flask_cors
